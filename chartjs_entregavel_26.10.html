@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Análise Comparativa de Salários</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Da acesso a lib -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+
+  <div class="header">
+    <div class="container">
+      <h1>Análise Comparativa de Salários</h1>
+    </div>
+  </div>
+
+  <div class="dash-container">
+    <!-- Gráfico de Linhas -->
+    <div class="graph1">
+      <canvas id="chartLine" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <!-- Gráfico de Barras -->
+    <div class="graph">
+      <canvas id="chartBar" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <!-- Grafico Pizza -->
+    <div class="graph">
+      <canvas id="chartPie" style="width: 100%; height: 100%;"></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  //Gráfico de Linha
+  var ctx = document.getElementById('chartLine').getContext('2d');
+
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['2011', '2012', '1013', '2014', '2015', '2016', 
+                '2017', '1018', '2019', '2020', '2021'],
+      datasets: [{
+        label: 'Salário Mínimo',
+        data: [540.00, 622.00, 678.00, 724.00, 788.00, 880.00, 
+                937.00, 954.00, 998.00, 1045.00, 1100.00],
+        backgroundColor: [
+          'green',
+          'green',
+          'green',
+          'green',
+          'green',
+          'green',
+        ],
+        borderColor: [
+          'green',
+          'green',
+          'green',
+          'green',
+          'green',
+          'green',
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  //Gráfico de Barras
+
+  var ctx2 = document.getElementById('chartBar').getContext('2d');
+
+  var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste'],
+      datasets: [{
+        label: 'Média de Salário por Região',
+        data: [1711.00, 1539.00, 2585.00, 2499.00, 2498.00,],
+        backgroundColor: [
+          '#ffa600af',
+          '#a52a2a92',
+          '#e2cb00ac',
+          '#0000ffa5',
+          '#ff0000af'
+        ],
+        borderColor: [
+          'orange',
+          'brown',
+          '#e2cb00',
+          'blue',
+          'red'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  //Gráfico Pizza
+
+  var ctx3 = document.getElementById('chartPie').getContext('2d');
+
+  var myChart3 = new Chart(ctx3, {
+    type: 'pie',
+    data: {
+      labels: ['Brasil (total)', 'Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste'],
+      datasets: [{
+        label: 'Desempenho por Região',
+        data: [11, 10.6, 13.6, 11.4, 6.8, 9.3],
+        backgroundColor: [
+          '#008000aa',
+          '#ffa600af',
+          '#a52a2a92',
+          '#e2cb00ac',
+          '#0000ffa5',
+          '#ff0000af'
+
+        ],
+        borderColor: [
+          'green',
+          'orange',
+          'brown',
+          '#e2cb00',
+          'blue',
+          'red'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+</script>
